@@ -7,7 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ArchivalServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ArchivalServiceApplication.class, args);
-	}
 
+
+		SpringApplication.run(ArchivalServiceApplication.class, args);
+
+
+	}
 }
