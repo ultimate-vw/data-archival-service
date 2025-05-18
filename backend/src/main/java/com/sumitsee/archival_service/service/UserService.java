@@ -14,18 +14,20 @@ import java.util.List;
 public class UserService {
 //    private final UserService userService;
 
-    public List<User> getAllUsers(){
-        return Arrays.asList(
-                new User(1L, "Sumit", "sumit@example.com"),
-                new User(2L, "Sunil", "sunil@example.com")
-        );
-    }
+    // TO DO: we can add users logic here to get the users into database
 
-    public User getUserById(Long id){
-        return getAllUsers().stream()
-                .filter(user -> user.getId().equals((id)))
-                .findFirst()
-                .orElse(null);
-    }
+//    public List<User> getAllUsers(){
+//        return Arrays.asList(
+//                new User(1L, "Sumit", "sumit@example.com"),
+//                new User(2L, "Sunil", "sunil@example.com")
+//        );
+//    }
+
+//    public User getUserById(Long id){
+//        return getAllUsers().stream()
+//                .filter(user -> user.getId().equals((id)))
+//                .findFirst()
+//                .orElse(null);
+//    }
 
 }

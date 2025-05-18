@@ -18,15 +18,17 @@ public class ArchivedUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String username;
     private String email;
+    private String status;
 
     @Column(name = "archived_at")
     private LocalDateTime archivedAt;
 
     public ArchivedUser(User user){
-        this.name = user.getName();
+        this.username = user.getUsername();
         this.email = user.getEmail();
+        this.status = user.getStatus();
         this.archivedAt = LocalDateTime.now();
     }
 

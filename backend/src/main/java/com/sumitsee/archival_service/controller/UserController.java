@@ -21,8 +21,8 @@ public class UserController {
 //        return "Backed in workng";
 //    }
 
-    @GetMapping
-    public List<User> getUsers(){
-        return userService.getAllUsers();
-    }
+//    @GetMapping
+//    public List<User> getUsers(){
+//        return userService.getAllUsers();
+//    }
 }

@@ -18,8 +18,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @Column(name = "username")
+    private String username;
     private String email;
+
+    private String status;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
