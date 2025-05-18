@@ -1,4 +1,4 @@
-package com.sumitsee.archival_service.model;
+package com.sumitsee.archival_service.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

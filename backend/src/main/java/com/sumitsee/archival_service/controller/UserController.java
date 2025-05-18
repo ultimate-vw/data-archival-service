@@ -1,6 +1,6 @@
 package com.sumitsee.archival_service.controller;
 
-import com.sumitsee.archival_service.model.User;
+import com.sumitsee.archival_service.model.archival.User;
 import com.sumitsee.archival_service.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,6 @@
 package com.sumitsee.archival_service.controller;
 
-import com.sumitsee.archival_service.model.ArchivalRequest;
+import com.sumitsee.archival_service.dto.ArchivalRequest;
 import com.sumitsee.archival_service.service.ArchivalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
