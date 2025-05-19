@@ -30,6 +30,7 @@ jobs:
 
       - name: Build JAR with Maven
         run: mvn clean package -DskipTests
+        working-directory: backend
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -44,7 +45,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
+          docker build -t $ECR_REPOSITORY:$IMAGE_TAG ./backend
           docker tag $ECR_REPOSITORY:$IMAGE_TAG ${{ steps.login-ecr.outputs.registry }}/$ECR_REPOSITORY:$IMAGE_TAG
 
       - name: Push Docker image to ECR
