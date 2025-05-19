@@ -7,3 +7,10 @@ CREATE TABLE archived_users (
     archived_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     original_created_at TIMESTAMP
 );
+
+ ALTER TABLE archived_users
+ ADD COLUMN created_at TIMESTAMP;
+
+-- UPDATE archived_users
+-- SET created_at = NOW()
+-- WHERE created_at IS NULL;

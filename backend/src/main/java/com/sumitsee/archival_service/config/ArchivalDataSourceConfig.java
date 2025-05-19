@@ -13,12 +13,15 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import jakarta.persistence.EntityManagerFactory;
 
+import java.util.Objects;
+
 @Configuration
 @EnableTransactionManagement
 @ConfigurationProperties(prefix = "custom.datasource.archival")
 @EnableJpaRepositories(
         basePackages = { "com.sumitsee.archival_service.repository.archival",
-        "com.sumitsee.archival_service.repository.config"
+        "com.sumitsee.archival_service.repository.config",
+        "com.sumitsee.archival_service.repository.security"
         },
         entityManagerFactoryRef = "archivalEntityManagerFactory",
         transactionManagerRef = "archivalTransactionManager"
@@ -49,6 +52,7 @@ public class ArchivalDataSourceConfig {
                 .dataSource(dataSource)
                 .packages(
                         "com.sumitsee.archival_service.entity.archival",
+                        "com.sumitsee.archival_service.entity.security",
                         "com.sumitsee.archival_service.entity.config"     // <- For ArchivalConfig
                 )
                 .persistenceUnit("archival")
@@ -59,6 +63,24 @@ public class ArchivalDataSourceConfig {
     @Primary
     public PlatformTransactionManager archivalTransactionManager(
             @Qualifier("archivalEntityManagerFactory") LocalContainerEntityManagerFactoryBean factory) {
-        return new JpaTransactionManager(factory.getObject());
+        return new JpaTransactionManager(Objects.requireNonNull(factory.getObject()));
     }
+
+//    @Bean(name = "securityEntityManagerFactory")
+//    public LocalContainerEntityManagerFactoryBean securityEntityManagerFactory(
+//            EntityManagerFactoryBuilder builder,
+//            @Qualifier("archivalDataSource") DataSource dataSource) {
+//        return builder
+//                .dataSource(dataSource)
+//                .packages("com.sumitsee.archival_service.entity.security")
+//                .persistenceUnit("security")
+//                .build();
+//    }
+//
+//    @Bean
+//    public PlatformTransactionManager securityTransactionManager(
+//            @Qualifier("securityEntityManagerFactory") LocalContainerEntityManagerFactoryBean factory) {
+//        return new JpaTransactionManager(factory.getObject());
+//    }
+
 }
