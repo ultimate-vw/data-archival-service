@@ -1,8 +1,9 @@
-package com.sumitsee.archival_service.model.archived;
+package com.sumitsee.archival_service.entity.archived;
 
-import com.sumitsee.archival_service.model.archival.User;
+import com.sumitsee.archival_service.entity.archival.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class ArchivedUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +23,9 @@ public class ArchivedUser {
     private String username;
     private String email;
     private String status;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
     @Column(name = "archived_at")
     private LocalDateTime archivedAt;

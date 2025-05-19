@@ -42,7 +42,7 @@ public class ArchivedDataSourceConfig {
             @Qualifier("archivedDataSource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .packages("com.sumitsee.archival_service.model.archived")
+                .packages("com.sumitsee.archival_service.entity.archived")
                 .persistenceUnit("archived")
                 .build();
     }

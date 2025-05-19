@@ -1,12 +1,8 @@
 package com.sumitsee.archival_service.service;
 
-import com.sumitsee.archival_service.model.archival.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Arrays;
-import java.util.List;
 
 @Service
 @RequestMapping("users")

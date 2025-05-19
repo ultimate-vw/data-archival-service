@@ -17,7 +17,9 @@ import jakarta.persistence.EntityManagerFactory;
 @EnableTransactionManagement
 @ConfigurationProperties(prefix = "custom.datasource.archival")
 @EnableJpaRepositories(
-        basePackages = "com.sumitsee.archival_service.repository.archival",
+        basePackages = { "com.sumitsee.archival_service.repository.archival",
+        "com.sumitsee.archival_service.repository.config"
+        },
         entityManagerFactoryRef = "archivalEntityManagerFactory",
         transactionManagerRef = "archivalTransactionManager"
 )
@@ -45,7 +47,10 @@ public class ArchivalDataSourceConfig {
             @Qualifier("archivalDataSource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .packages("com.sumitsee.archival_service.model.archival")
+                .packages(
+                        "com.sumitsee.archival_service.entity.archival",
+                        "com.sumitsee.archival_service.entity.config"     // <- For ArchivalConfig
+                )
                 .persistenceUnit("archival")
                 .build();
     }

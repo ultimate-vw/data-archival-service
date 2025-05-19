@@ -16,8 +16,8 @@ public class ArchivalScheduler {
 
     @Scheduled(cron = "0 0 2 * * ?")
     public void runArchival(){
-        ArchivalRequest request = new ArchivalRequest();
-        request.setSourceTable("users");
-       archivalService.archiveData(request);
+//        ArchivalRequest request = new ArchivalRequest();
+//        request.setSourceTable("users");
+       archivalService.archiveData();
     }
 }
