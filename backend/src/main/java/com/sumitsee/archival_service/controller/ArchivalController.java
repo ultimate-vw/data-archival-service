@@ -17,11 +17,11 @@ import java.util.List;
 public class ArchivalController {
     private final ArchivalService archivalService;
 
-//    @PostMapping("/run")
-//    public ResponseEntity<String> runArchive(@RequestBody ArchivalRequest archivalRequest){
-//        archivalService.archiveData(archivalRequest);
-//        return ResponseEntity.ok("Archival Complete!");
-//    }
+    @PostMapping("/run")
+    public ResponseEntity<String> runArchive(){
+        archivalService.archiveData();
+        return ResponseEntity.ok("Archival Complete!");
+    }
 
     @PostMapping("/delete")
     public ResponseEntity<String> runDelete(@RequestBody DeletionRequest deletionRequest){
