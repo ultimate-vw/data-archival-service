@@ -2,6 +2,10 @@ spring:
   application:
     name: archival-service
 
+server:
+  servlet:
+    context-path: /data-archival-service/api
+
   jpa:
     show-sql: true
     hibernate:
