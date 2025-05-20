@@ -25,5 +25,5 @@ replay_pid*
 
 # environment files or secrets
 *.env
-backend/src/main/resources/application-secrets.yml
+#backend/src/main/resources/application-secrets.yml
 
