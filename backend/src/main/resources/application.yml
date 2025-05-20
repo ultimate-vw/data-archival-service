@@ -11,5 +11,5 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
   config:
-    import: "classpath:application-secrets.yml"
+    import: "optional:classpath:application-secrets.yml"
 
