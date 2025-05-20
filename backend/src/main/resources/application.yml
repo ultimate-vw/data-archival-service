@@ -13,3 +13,20 @@ spring:
   config:
     import: "optional:classpath:application-secrets.yml"
 
+
+custom:
+  datasource:
+    archival:
+      url: jdbc:postgresql://${ARCHIVAL_DB_HOST}:${ARCHIVAL_DB_PORT}/${ARCHIVAL_DB_NAME}
+      username: ${ARCHIVAL_DB_USERNAME}
+      password: ${ARCHIVAL_DB_PASSWORD}
+      driver-class-name: org.postgresql.Driver
+
+    archived:
+      url: jdbc:postgresql://${ARCHIVED_DB_HOST}:${ARCHIVED_DB_PORT}/${ARCHIVED_DB_NAME}
+      username: ${ARCHIVED_DB_USERNAME}
+      password: ${ARCHIVED_DB_PASSWORD}
+      driver-class-name: org.postgresql.Driver
+
+jwt:
+  secret: ${JWT_SECRET}
