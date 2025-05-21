@@ -27,15 +27,29 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//        return http
+//                .csrf().disable()
+//                .authorizeHttpRequests(auth -> auth
+//                        .requestMatchers("/api/auth/**").permitAll()
+//                        .requestMatchers("/api/archival/view/**").authenticated()
+//                        .anyRequest().permitAll()
+//                )
+//                .userDetailsService(userService)
+//                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+//                .build();
+
         return http
-                .csrf().disable()
+                .securityMatcher("/**") // Applies to all routes
+                .cors(Customizer.withDefaults()) // Allow all CORS by default
+                .csrf(AbstractHttpConfigurer::disable) // Disable CSRF
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/archival/view/**").authenticated()
-                        .anyRequest().permitAll()
+                        .requestMatchers("/api/auth/**").permitAll() // Login/Register allowed
+                        .requestMatchers("/api/**").permitAll()
+                        .anyRequest().permitAll()                     // Don’t block anything else
                 )
                 .userDetailsService(userService)
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
