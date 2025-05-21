@@ -65,7 +65,7 @@ This document explains the complete architecture, components, and deployment of 
 
 ```
 +----------------------+
-|  Frontend (React)    |---> http://themadtie.art/data-archival-service
+|  Frontend (React)    |---> http://ECS/data-archival-service
 +----------------------+
             |
             v
