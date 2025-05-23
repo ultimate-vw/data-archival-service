@@ -1,15 +1,16 @@
 # data-archival-service
 
 Creating a monorepo to deploy the application on AWS with documentation and design thinking notes. 
-This monorepo contains application for data-archival-service. 
+This monorepo contains the application for the data-archival-service. 
 
-This is a basic fullstack setup deployed on AWS (Production ready)
+This is a basic full-stack setup deployed on AWS (Production-ready)
 
-------- DO NOT CHANGE ABOVE -------------------
 
-------- Dynamic Structure Below ---------------
+!!The required structure and notes need to be added here from below:
 
-!!Required structure and notes needs to be added here from below:
+If you want to build this with me, feel free to contact me. 
+
+
 
 ## [Architecture Diagram]
 <img src="docs/da_brainstorming.jpg" alt="Architecture Diagram" width="500"/>
